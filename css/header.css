@@ -1,0 +1,354 @@
+/*SECCION HEADER*/
+#header{
+    width: 100%;
+    display: flex;
+    position: sticky;
+    background-color: var(--color-header);
+    height: 3.75rem;
+    max-height: 3.75rem;
+    top: 0;
+    margin: 0;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+/*Primera sección del header: Logo*/
+#header__logo {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    min-width: 6.5rem;
+}
+
+#header__logo img {
+    display: inline-block;
+    cursor: pointer;
+    max-height: 2.5rem;
+}
+
+#header__logo-secundario {
+    display: none;
+    margin-left: 0.6rem;
+    margin-right: 1rem;
+    min-width: 2rem;
+}
+
+#header__logo-secundario img {
+    display: inline-block;
+    cursor: pointer;
+    max-height: 2rem;
+    margin-top: 0.5rem;
+}
+
+/*Segunda seccion del header: Menu Central*/
+#header__menu-central {
+    display: flex;
+    justify-content: left;
+    flex: 1;
+    position: sticky;
+    height: 100%;
+}
+
+    /*Lista que contiene el menu central*/
+#header__menu-central ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    height: 100%;
+    margin: 0;
+}
+    /*Item individual del menu central*/
+.header__menu-central__item {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0rem 2rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0rem 0.4rem;
+    cursor: pointer;
+    
+}
+
+.header__menu-central__item--activo {
+    color: var(--color-marca);
+    border-bottom: solid 0.2rem var(--color-marca);
+
+    > a{
+        color: var(--color-marca);
+    }
+    
+}
+
+    /*Imagenes de item*/
+.header__menu-central__item__icono{
+    height: 2rem;
+    margin-right: 0.4rem;
+    transition: 0.1s all;
+}
+
+    /*Links de items*/
+.header__menu-central__item__link{
+    display: inline-block;
+    text-decoration: none;
+    color: var(--color-texto);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.header__menu-central__item:hover{
+    color: var(--color-marca);
+    border-bottom: solid 0.2rem var(--color-texto);
+}
+
+.header__menu-central__item--activo:hover{
+    color: var(--color-marca);
+    border-bottom: solid 0.2rem var(--color-marca);
+}
+
+
+/*Tercera seccion del header: Usuario*/
+
+    /*funciones de usuario*/
+#header__usuario {
+    display:flex;
+    position: relative;
+    right: 0;
+    align-items: center;
+}
+
+#header__sin-iniciar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header__usuario__crear-cuenta{
+    padding: 0.5rem 1rem;
+    font-family: var(--font-titulo);
+    font-weight: bold;
+    background-color: var(--color-header);
+    color: var(--color-texto);
+    opacity: 0.5;
+    border-style: solid;
+    border-radius: 5rem;
+    border-color: rgb(200, 200, 200);
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+#header__usuario__crear-cuenta:hover{
+    opacity: 1;
+}
+
+#header__usuario__iniciar-sesion{
+    padding: 0.5rem 1rem;
+    font-family: var(--font-titulo);
+    font-weight: bold;
+    background-color: var(--color-header);
+    color: var(--color-texto);
+    border-style: solid;
+    border-radius: 5rem;
+    border-color: var(--color-texto);
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+#header__usuario__iniciar-sesion:hover{
+    border-color: var(--color-header);
+    color: var(--color-header);
+    background-color: white;
+}
+
+    /*icono de usuario*/
+.header__usuario__icono{
+    display: inline-block;
+    width: 2rem;
+    margin-right: 1rem;
+    transition: .1s all;
+    cursor: pointer;
+}
+
+#header__usuario__icono__secundario{
+    display: inline-block;
+    width: 0.8rem;
+    transition: .1s all;
+    margin-right: 0.4rem;
+    cursor: pointer;
+}
+
+#nombre_us {
+    font-family: var(--font-titulo);
+    margin-right: .5rem;
+    color: var(--color-texto);
+}
+
+.header__usuario__icono__secundario--activo{
+    -webkit-transform: scaleY(-1);  
+    transform: scaleY(-1);
+}
+    
+#header__usuario__menu {
+    border-radius: 0.5rem;
+    box-shadow: #333333;
+    position: absolute;
+    display: none;
+    top: 100%;
+    background-color: rgb(42, 42, 42);
+    width: 11.2rem;
+    right: 1rem;
+    padding: 0;
+    margin-top:0.6rem ;
+}
+
+.header__usuario__menu--abierto {
+    max-height: min-content!important;
+    display:block!important;
+}
+
+    /*quitar viñetas de la lista*/
+#header__usuario__menu ul {
+    list-style: none;
+    padding: 0rem 0.5rem;
+}
+
+    /*seleccion de funciones de usuario*/
+.header__usuario__menu__item {
+    width: 100%;
+
+    padding: 0.6rem 0.5rem;
+    color: #fff;
+    transition: background-color 0.4s;
+}
+
+    /*seleccion de nombre de funciones de usuario*/
+.header__usuario__menu__item__link{
+    color: #fff;
+    font-family: var(--font-cuerpo);
+    font-size: 0.95rem;
+    text-decoration: none;
+    margin-left: 0.4rem;
+    margin-right: 0.313rem;
+    height: min-content;
+    
+    display: flex;
+    align-items: center;
+}
+
+#header__usuario:hover {
+    cursor: pointer;
+}
+
+.header__usuario__menu__item:hover {
+    background-color: rgb(71, 71, 71);   
+}
+
+#menu-inferior{
+    display: none;
+    z-index: 2;
+}
+
+@media screen and (max-width: 800px) {
+    .header__menu-central__item{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .header__menu-central__item__icono{
+        height: 1.5rem;
+        margin-right: 0;
+    }
+    .header__menu-central__item__link{
+        font-size: 1rem;
+    } 
+}
+
+@media only screen and (max-width: 768px) {
+    #header{
+        height: 3rem;
+        background-color: var(--color-body);
+    }
+
+    #header__logo {
+        display: none;
+    }
+    
+    #header__logo-secundario {
+        display: inline-block;
+    }
+
+    #header__menu-central{
+        display: none;
+    }
+
+    #header__sin-iniciar{
+        font-size: 0.7rem;
+        display: flex;
+        flex: 1;
+        justify-content: right;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    #header__usuario__crear-cuenta{
+        padding-left:0.2rem;
+        padding-right: 0.2rem;
+        margin-right: 0.2rem;
+    }
+    #header__usuario__iniciar-sesion{
+        padding-left:0.2rem;
+        padding-right: 0.2rem;
+        margin-right: 0.2rem;
+    }
+
+    #header__logo img{
+        height: 2rem;
+    }
+
+    #menu-inferior{
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 3.4rem;
+        opacity: 1;
+        background-color: rgb(40, 40, 40);
+    }
+    
+    #menu-inferior ul{
+        list-style: none;
+        
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+    }
+    
+    .menu-inferior__item{
+        display: flex;
+        flex-direction: column;
+        opacity: 0.6;
+    }
+
+    .menu-inferior__item--activo{
+        opacity: 1;
+    }
+    
+    .menu-inferior__item__icono{
+        height: 1.2rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .menu-inferior__item__link{
+        font-size: 0.8rem;
+        color: var(--color-texto);
+        text-decoration: none;
+        font-family: var(--font-cuerpo);
+
+    }
+}
+
+

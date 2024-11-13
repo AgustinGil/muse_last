@@ -1,0 +1,48 @@
+#contenedor-barra{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 3rem;
+    margin-top: 2rem;
+}
+
+#barra-busqueda{
+    background-color: #3e3c42;
+    border-style: solid;
+    padding: 0.5rem 1rem;
+    border-color: var(--color-header);
+    font-size: 1.1rem;
+    color: white;
+    border-width: 0.1rem;
+    border-radius: 2rem;
+    font-family: var(--font-titulo);
+    width: 40%;
+    line-height: 1rem;
+}
+
+#barra-busqueda:hover{
+    border-color: #6b6a6d;
+}
+
+#barra-busqueda:focus{
+    outline: none;
+}
+
+
+#barra-busqueda:focus-visible{
+    border-color: var(--color-marca);
+}
+
+#lupa{
+    display: flex;
+    height: 1.4rem;
+    margin-left: 0.6rem;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    #barra-busqueda{
+        width: 60%;
+    }
+
+}

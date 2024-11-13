@@ -1,0 +1,245 @@
+#main__central{
+    width: 100vw;
+    background: rgba(37, 35, 41,0.5);
+    backdrop-filter: blur(1000px);
+}
+
+#perico{
+    display: none;
+    height: 80vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+
+    transition: transform 10s;
+}
+
+.cancion-popup--activo{
+    display: flex !important;
+}
+
+#perico img{
+    transition: transform 10s;
+}
+
+#perico img:hover{
+    transform: rotate(2000deg) !important;
+}
+
+#perico img{
+    width: 20vw;
+}
+
+main{
+    background-color: var(--color-header);
+}
+.seccion-titular {
+    margin: 0rem 0.5rem 0.5rem 3rem;
+    color: #fff;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+.seccion-titular__track ul{
+    list-style: none;
+}
+
+/*titulos de categorias*/
+.seccion-titular h2 {
+    font-size: 24px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+/*categorias*/
+.seccion-titular__music {
+    display: flex;
+    overflow-x: scroll;
+    padding-bottom: 1rem;
+}
+
+
+/*informacion de cancion*/
+.seccion-titular__info--music {
+    display: flex;
+    flex-direction: column;
+    border-radius: 4%;
+    margin-top: 1rem;
+}
+
+.seccion-titular__info--img{
+    display: flex;
+    position: relative;
+    justify-content:left;
+}
+
+/*imagen de cancion*/
+.imagen{    
+    position: relative;
+    margin: 0rem;
+    border-radius: 2%;
+    object-fit: cover;
+    aspect-ratio: 4/2.2;
+    object-position: center;
+    
+}
+
+.reproducir-sobre-imagen{
+    position: absolute;
+    width: 20%;
+    left:50%; top:50%; 
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.05s;
+    z-index: 1;
+}
+
+.seccion-titular__info--music:hover{
+    cursor: pointer;
+
+    .imagen{
+        opacity: 0.6;
+    }
+
+    .reproducir-sobre-imagen{
+        opacity: 0.95;
+    }
+}
+
+/*texto de cancion: titulo y cantante*/
+.seccion-titular__info--text {
+    margin-top: 0.625rem;
+    color: #fff;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-family: Arial;
+}
+
+/*titulo*/
+.seccion-titular__info--text .seccion-titular__info--titulo {
+    font-size: 15px;
+    font-weight: bold;
+    display: block;
+    font-family: var(--font-cuerpo);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/*cantante*/
+.seccion-titular__info--text .seccion-titular__info--artista {
+    font-size: 14px;
+    margin-top: 0.3rem;
+    margin-bottom: 0rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-family: var(--font-cuerpo);
+}
+
+.splide__arrow{
+    background: rgba(0, 0, 0, 0) !important;
+    top: 54.45% !important;
+    opacity: 1 ;
+}
+
+#repeat{
+    display: none;
+}
+
+
+.vista-cancion{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 5;
+    width: 100vw;
+    height: 80%;
+}
+
+.vista-cancion__nombre{
+    font-family: var(--font-titulo);
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 0.4rem;
+    margin-top: 0.4rem;
+}
+
+.vista-cancion__artista{
+    font-family: var(--font-titulo);
+    text-align: center;
+}
+
+#main section:not(.vista-cancion){
+    filter: var(--filtro-cancion);
+}
+#footer{
+    filter: var(--filtro-cancion); 
+}
+
+@keyframes like {
+    50% {transform : scale(1.3);}
+    100% {transform: scale(1)};
+}
+
+@keyframes unlike {
+    50% {transform : scale(0.7);}
+    100% {transform: scale(1)};
+}
+.corazon{
+    height: 1.2rem;
+    margin-left: 0.4rem;
+}
+
+.corazon-click{
+    animation-name: like;
+    animation-duration: 1s;
+}
+
+.corazon-unclick{
+    animation-name: unlike;
+    animation-duration: 1s;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    .seccion-titular__music {
+        display: flex;
+        overflow-x: scroll;
+        padding-bottom: 1rem;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .seccion-titular__music::-webkit-scrollbar {
+        display: none;   
+    }
+
+    .reproducir-sobre-imagen{
+        display: none;
+    }
+
+    .seccion-titular__info--music:focus{
+        background-color: rgb(38, 38, 38);
+        cursor: pointer;
+        opacity: 0.6;
+        
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .imagen{
+        width: 250px;
+    }
+    .seccion-titular__info--titulo {
+        width: 250px;
+    }
+}

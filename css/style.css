@@ -1,0 +1,422 @@
+/*Enlace a la font Space Grotesk*/
+@font-face{
+    font-family: Inter;
+    src: url(assets\fonts\Inter\static\Inter-Regular.ttf);
+}
+
+/*Enlaces a la font Roboto y sus distintos pesos*/
+@font-face{
+    font-family: Roboto;
+    src: url(assets\fonts\Roboto,Space_Grotesk\Roboto\Roboto-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face{
+    font-family: Roboto;
+    src: url(assets\fonts\Roboto,Space_Grotesk\Roboto\Roboto-Bold.ttf);
+    font-weight: 700;
+}
+
+
+:root{
+    --font-cuerpo: Roboto,Arial;
+    --font-titulo: Inter,Segoe UI;
+    
+    --color-texto:hsl(0, 0%, 100%);
+    --color-body: #19171E;
+    --color-header: #252329;
+    --color-barra-inferior: hsl(0, 0%, 0%);
+    --color-contenedor-cancion: hsl(0, 0%, 12%);
+    --color-marca: #6e30e8ff;
+
+    --filtro-cancion:blur(0) brightness(1);
+
+    color: var(--color-texto);
+}
+
+body{
+    background: var(--color-header);
+}
+
+select:required:invalid{ 
+    color: gray; 
+}
+
+::-ms-reveal {
+    filter: invert(100%);
+}
+
+/* Modificaciones a la barra de scroll */
+::-webkit-scrollbar{
+    width: 0.4rem;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color:rgb(101, 101, 101);
+}
+.filtro-morado{
+    filter: brightness(0) saturate(100%) invert(21%) sepia(53%) saturate(7443%) hue-rotate(258deg) brightness(93%) contrast(96%);
+}
+
+.filtro-blanco{
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(131deg) brightness(102%) contrast(104%);
+}
+
+
+.barra-inferior {
+    width: 100%;
+    height: 5rem;
+    position: sticky;
+    bottom: 0;
+    background: #17171c;
+    display: none;
+    z-index: 3;
+    left: 0;
+    align-items: center;
+}
+
+.contenedor-imagen-actual {
+    display: inline-block;
+    text-align: center;
+    margin-left: .8rem;
+    cursor: pointer;
+}
+
+#imagen-actual {
+    max-width: 5rem;
+    object-fit: cover;
+    aspect-ratio: 4/2.2;
+}
+
+.texto-actual {
+    color: #fff;
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 14rem;
+    cursor: pointer;
+}
+
+#cancion-actual {
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    max-width: 8rem;
+}
+
+#artista-actual {
+    margin-top: -0.01rem;
+    font-size: 0.7rem;
+    overflow: hidden;
+    margin-bottom: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.zona-reproductor {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+#reproductor-de-audio {
+    height: 90%;
+    width: 100%;
+    padding: 0 0px;
+}
+
+#lista-reproduciendo__imagenes{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: baseline;
+}
+
+.lista-reproduciendo__imagenes__item{
+    width: 1.8rem;
+}
+
+.lista-reproduciendo__imagenes__item:nth-child(1){
+    border-top-left-radius: 10%;
+}
+.lista-reproduciendo__imagenes__item:nth-child(2){
+    border-top-right-radius: 10%;
+}
+.lista-reproduciendo__imagenes__item:nth-child(3){
+    border-bottom-left-radius: 10%;
+}
+.lista-reproduciendo__imagenes__item:nth-child(4){
+    border-bottom-right-radius: 10%;
+}
+
+#lista-reproduciendo__texto{
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.8rem;
+    margin-left: 1rem;
+    margin-right: 2rem;
+}
+
+#lista-reproduciendo__texto__titulo{
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 1rem;
+    font-family: var(--font-cuerpo);
+}
+
+#lista-reproduciendo__texto__canciones{
+    margin-top: 0;
+    font-size: 0.8rem;
+    font-size: 12px;
+    max-width: 8rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-family: var(--font-cuerpo);
+}
+
+.controls{
+    margin-top:0.5rem ;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.player-button{
+    height: 2rem;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.player-button-play{
+    height: 2rem;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.player-button img{
+    height: 2rem;
+    cursor: pointer;
+}
+
+.player-button-play img{
+    height: 2rem;
+    cursor: pointer;
+}
+
+.timeline {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 60%;
+    height: .3em;
+    background-color: #848484;
+    border-radius: 0.2rem;
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-image: linear-gradient(#6e30e8ff, #6e30e8ff);
+}
+
+#timeline__container{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+#timeline__container p{
+    font-size: 0.8rem;
+    margin: 0rem 0.5rem 0rem 0.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.timeline::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+    transition: all .1s;
+    background-color: #ffffff;
+}
+
+.timeline::-webkit-slider-thumb:hover {
+    background-color: #ffffff;
+}
+
+.timeline:hover::-webkit-slider-thumb {
+    opacity: 1;
+}
+
+.timeline::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+}
+
+#volumen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#barra-sonido{
+    margin-left: 0;
+    display: none;
+}
+
+.speaker{
+    padding-right: 0;
+    margin-right: 4rem;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+#imagen-lista{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+
+    margin-left: 2rem;
+}
+
+
+#imagen-lista p{
+    display: flex;
+    font-size: 0.8rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: max-content;
+}
+
+#imagen-lista img{
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 0.2rem;
+    margin-right: 0.5rem;
+}
+/*
+
+#cancion-popup{
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 500;
+}
+*/
+
+.swal2-title{
+    font-family: var(--font-titulo);
+    color: white;
+}
+
+@media screen and (max-width: 768px){
+    .texto-actual {
+        width: 5rem;
+        margin-right: 2rem;
+    }
+    .controls{
+        justify-content: right;
+        margin-right: 1rem;
+        align-items: center;
+    }
+
+    .contenedor-imagen-actual {
+        display: inline-block;
+        text-align: center;
+        margin-left: .8rem;
+    }
+
+    #imagen-actual{
+        width: 3rem;
+    }
+
+    #imagen-lista{
+        display: none;
+    }
+    
+    #volumen{
+        display: none;
+    }
+
+    .player-button{
+        display: none;
+    }
+
+    #timeline__container{
+        display: none;
+    }
+    .barra-inferior {
+        bottom: 3.8rem;
+        opacity: 0.9;
+        width: 95%;
+        left: 50%;
+        translate:-50% -0%;
+        height: 3.5rem;
+        padding-right: 0;
+    }
+
+    .zona-reproductor {
+        display: block;
+    }
+
+    .seccion-titular{
+        margin-left: 1rem;
+    }
+
+    audio::-webkit-media-controls-timeline {
+        display: none;
+        width: 0;
+    }
+    
+    audio::-webkit-media-controls-current-time-display {
+        display: none;
+        color: #fff;
+        text-shadow: none;
+        width: 0;
+    }
+    
+    audio::-webkit-media-controls-time-remaining-display {
+        display: none;
+        color: #fff;
+        text-shadow: none;
+        width: 0;
+    }
+    audio::-webkit-media-controls-mute-button {
+        display: none;
+        
+    }
+    /*
+
+    audio::-webkit-media-controls-play-button {
+        
+    }
+    */
+    .barra-inferior {
+        position: fixed;
+    }
+    
+    #lista-reproduciendo__imagenes{
+        display: none;
+    }
+    
+    #lista-reproduciendo__texto{
+        display: none;
+    }
+}

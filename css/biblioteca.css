@@ -1,0 +1,103 @@
+#header {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: calc(3.75rem * 1.8) !important;
+    max-height: calc(3.75rem * 1.8) !important;
+  }
+  
+  .header-superior {
+    width: 100%;
+    display: flex;
+    position: sticky;
+    background-color: var(--color-header);
+    height: 3.75rem;
+    max-height: 3.75rem;
+    top: 0;
+    margin: 0;
+    justify-content: space-between;
+    z-index: 2;
+  }
+  
+  .header-inferior {
+    height: 2rem;
+    max-height: 3.75rem;
+    background-color: #1b1b22;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .header-inferior__item {
+    border-bottom: none;
+  }
+  
+  .header-inferior__item:hover {
+    border-bottom: none;
+  
+    .header-inferior__link {
+      color: white;
+      color: var(--color-marca);
+    }
+  }
+  .resultado {
+    width: 90% !important;
+  }
+  .header-inferior__link {
+    font-weight: normal;
+    font-size: 1.1rem;
+  }
+  
+  #seccion-resultado-biblioteca {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-left: 0.5rem;
+  }
+  
+  .header__menu-central-inferior {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0rem 0rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0rem 0.4rem;
+    cursor: pointer;
+  }
+  
+  .header__menu-central-inferior ul {
+    display: flex;
+    padding-left: 0;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    #seccion-resultado-biblioteca {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+  
+  @media only screen and (max-width: 630px) {
+    #seccion-resultado-biblioteca {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .header__menu-central-inferior {
+      margin-left: 0rem;
+    }
+  
+    .header__menu-central-inferior ul {
+      padding-left: 0rem;
+    }
+  
+    .header-inferior__item {
+      margin-left: 0.3rem;
+      margin-right: 0.3rem;
+    }
+  }
+  
+  @media only screen and (max-width: 420px) {
+    #seccion-resultado-biblioteca {
+      grid-template-columns: 1fr;
+    }
+  }
+  
